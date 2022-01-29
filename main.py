@@ -24,7 +24,7 @@
 
 # Extracted color list from the code above
 
-from turtle import Turtle
+import turtle as a
 import random
 
 color_list = [(241, 222, 86), (35, 98, 185), (86, 174, 218), (169, 67, 37), (217, 158, 84), (187, 16, 34),
@@ -32,3 +32,45 @@ color_list = [(241, 222, 86), (35, 98, 185), (86, 174, 218), (169, 67, 37), (217
               (232, 70, 44), (225, 123, 172), (125, 198, 117), (20, 55, 146), (59, 119, 64), (118, 226, 184),
               (71, 30, 43), (135, 216, 233), (238, 158, 217), (41, 172, 183), (29, 41, 84), (242, 175, 152),
               (162, 165, 235), (90, 30, 22)]
+
+arrow = a.Turtle()
+arrow.shape("triangle")
+arrow.shapesize(.5, .5, 0)
+# arrow.position(100.00, 0.00)
+arrow.speed("slow")
+a.colormode(255)
+
+
+# def ger_random_color():
+#     length = len(color_list)
+#     random.ran
+
+
+def start(up):
+    x = -200
+    y = -200 + up
+    arrow.penup()
+    arrow.goto(x, y)
+    arrow.pendown()
+
+
+upward = 0
+
+# for _ in range(20):
+#     start(upward)
+#     for i in range(10):
+#         arrow.forward(15)
+#         arrow.pen()
+#         arrow.forward(5)
+#         arrow.pendown()
+#     upward += 20
+
+for i in range(10):
+    arrow.forward(15)
+    arrow.dot(10, random.choice(color_list))
+    arrow.penup()
+    arrow.forward(5)
+    arrow.pendown()
+
+screen = a.Screen()
+screen.exitonclick()
