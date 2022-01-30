@@ -32,45 +32,46 @@ color_list = [(241, 222, 86), (35, 98, 185), (86, 174, 218), (169, 67, 37), (217
               (232, 70, 44), (225, 123, 172), (125, 198, 117), (20, 55, 146), (59, 119, 64), (118, 226, 184),
               (71, 30, 43), (135, 216, 233), (238, 158, 217), (41, 172, 183), (29, 41, 84), (242, 175, 152),
               (162, 165, 235), (90, 30, 22)]
-
+# create an object from turtle class
 arrow = a.Turtle()
+# change the shape for the turtle to triangle
 arrow.shape("triangle")
+# change the shape for the turtle
 arrow.shapesize(.5, .5, 0)
-# arrow.position(100.00, 0.00)
+# set the speed of the movement of the turtle
 arrow.speed("slow")
+# set the colormode
 a.colormode(255)
 
+# change the starting position of the turtle
+y_counter = -200
+# pickup the pen so it does not draw on the screen
+arrow.penup()
+# move the location to the start location
+arrow.goto(-250, y_counter)
 
-# def ger_random_color():
-#     length = len(color_list)
-#     random.ran
 
-
-def start(up):
-    x = -200
-    y = -200 + up
+def dot():
     arrow.penup()
-    arrow.goto(x, y)
-    arrow.pendown()
-
-
-upward = 0
-
-# for _ in range(20):
-#     start(upward)
-#     for i in range(10):
-#         arrow.forward(15)
-#         arrow.pen()
-#         arrow.forward(5)
-#         arrow.pendown()
-#     upward += 20
-
-for i in range(10):
-    arrow.forward(15)
-    arrow.dot(10, random.choice(color_list))
+    arrow.forward(25)
+    arrow.dot(20, random.choice(color_list))
     arrow.penup()
-    arrow.forward(5)
-    arrow.pendown()
+    arrow.forward(25)
 
+
+# use an outer range to increment the location accouting for the rows
+for a in range(10):
+    # use the inner range to increment the movement for moving forward and creating a dot
+    for i in range(10):
+        dot()
+    # increment the location of the y-axis upwards by 50
+    y_counter += 50
+    # pick up the pen so it does not draw on the screen
+    arrow.penup()
+    # go to the incremented position
+    arrow.goto(-250, y_counter)
+
+# screen stays on
 screen = a.Screen()
+# screen exits on click
 screen.exitonclick()
